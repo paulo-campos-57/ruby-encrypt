@@ -1,6 +1,19 @@
 require 'openssl'
 require 'base64'
 
+def clear_screen
+  if RUBY_PLATFORM =~ /win32|win64|mgwin|mswin/
+    system("cls")
+  else
+    system("clear")
+  end
+end
+
+def pause 
+  puts "Pressione ENTER para continuar"
+  gets
+end
+
 def encrypt(plaintext, key)
   iv = OpenSSL::Random.random_bytes(12)
   
@@ -67,6 +80,7 @@ def load_encrypted_message(filename)
 end
 
 loop do
+  clear_screen
   puts "\nEscolha uma opção:"
   puts "1. Criptografar uma mensagem"
   puts "2. Descriptografar uma mensagem"
@@ -117,4 +131,5 @@ loop do
   else
     puts "Opção inválida. Tente novamente."
   end
+  pause
 end
