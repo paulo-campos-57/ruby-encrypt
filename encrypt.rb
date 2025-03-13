@@ -93,6 +93,10 @@ loop do
     puts "Informe o nome do arquivo da mensagem criptografada (ex: mensagem1.bin): "
     filename = gets.chomp
 
+    unless File.exist?(filename)
+      puts "Erro: O arquivo '#{filename}' não foi encontrado."
+      next
+    end
     puts "Insira a chave (em Base64): "
     key_base64 = gets.chomp
     key = Base64.strict_decode64(key_base64)
