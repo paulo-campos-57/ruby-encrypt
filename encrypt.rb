@@ -84,9 +84,10 @@ loop do
   puts "\nEscolha uma opção:"
   puts "1. Criptografar uma mensagem"
   puts "2. Descriptografar uma mensagem"
-  puts "3. Sair"
+  puts "0. Sair"
   print "Opção: "
   option = gets.chomp.to_i
+  clear_screen
 
   case option
   when 1
@@ -125,7 +126,7 @@ loop do
         puts "Erro ao descriptografar: #{e.message}"
       end
     end
-  when 3
+  when 0
     puts "Saindo..."
     break
   else
