@@ -81,7 +81,7 @@ end
 
 loop do
   clear_screen
-  puts "\nEscolha uma opção:"
+  puts "Escolha uma opção:"
   puts "1. Criptografar uma mensagem"
   puts "2. Descriptografar uma mensagem"
   puts "0. Sair"
@@ -110,6 +110,7 @@ loop do
 
     unless File.exist?(filename)
       puts "Erro: O arquivo '#{filename}' não foi encontrado."
+      pause
       next
     end
     puts "Insira a chave (em Base64): "
